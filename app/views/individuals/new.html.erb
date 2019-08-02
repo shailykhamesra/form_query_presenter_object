@@ -1,0 +1,20 @@
+<strong><%= 'Contact Form' %></strong>
+<%= form_for @form, url: individuals_path do |f| %>
+  
+  <p id="notice"><%= notice %></p>
+
+  <% if @form.errors.any? %>
+    <%= @form.errors.full_messages %>
+  <% end %>
+  <br><br>
+
+  <%= f.label :name %>
+  <br>
+  <%= f.text_field :name, :required => true, :pattern=>'[a-zA-Z]{1,30}', :maxlength => 20, :size=>'30', placeholder: 'Max 30 alphabet long string' %>
+  <br><br>
+  <%= f.label :phone_number %>
+  <br>
+  <%= f.text_field :phone_number, :size=>'30', :pattern=>'\d{1,12}', placeholder: 'Max 12 digit numerical value' %>
+  <br><br>
+  <%= f.submit id: "submit" %>
+<% end %>

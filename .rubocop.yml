@@ -1,0 +1,13 @@
+Metrics/LineLength:
+  Enabled: false
+  Max: 120
+Documentation:
+  Enabled: false
+Style/AndOr:
+  EnforcedStyle: conditionals
+AllCops:
+  Excludes:
+    - db/schema.rb
+Metrics/BlockLength:
+  Exclude:
+    - 'config/environments/development.rb'
