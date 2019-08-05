@@ -12,15 +12,12 @@ class IndividualsController < ApplicationController
 
   def create
     @form = ContactForm.new(contact_form_params)
-    if @form.save
-      respond_to do |format|
-        format.json { render json: { individual: IndividualPresenter.new(@form)._show },status: :ok }
-        format.html { redirect_to new_individual_path, flash: { notice: 'Individual contact saved' }}
-      end
-      return
-    end
     respond_to do |format|
-      format.json { render json: { error: @form.errors.full_messages.first },status: :unprocessable_entity }
+      if @form.save
+        format.json { render json: { individual: IndividualPresenter.new(@form)._show }, status: :ok }
+        format.html { redirect_to new_individual_path, flash: { notice: 'Individual contact saved' } }
+      end
+      format.json { render json: { error: @form.errors.full_messages.first }, status: :unprocessable_entity }
       format.html { render :new }
     end
   end

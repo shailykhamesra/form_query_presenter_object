@@ -1,6 +1,8 @@
 Metrics/LineLength:
   Enabled: false
   Max: 120
+Metrics/AbcSize:
+  Max: 20
 Documentation:
   Enabled: false
 Style/AndOr:
