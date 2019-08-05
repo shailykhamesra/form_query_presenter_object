@@ -23,6 +23,6 @@ class IndividualsController < ApplicationController
   end
 
   def individuals_scope
-    IndividualsQuery.new.name_length(Individual.all)
+    IndividualsQuery.new.name_length_query(Individual.all)
   end
 end

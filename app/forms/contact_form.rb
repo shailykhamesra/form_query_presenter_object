@@ -7,10 +7,16 @@ class ContactForm
 
   def save
     if valid?
-      individual = Individual.new(name: name, phone_number: phone_number)
+      individual = Individual.new(individual_params)
       individual.save
       return true
     end
     false
+  end
+
+  private
+
+  def individual_params
+    { name: name, phone_number: phone_number }
   end
 end
