@@ -22,6 +22,11 @@ class IndividualsController < ApplicationController
     end
   end
 
+  def show
+    @individuals = Individual.all
+    @individuals = IndividualFacade.new(@individuals)
+  end
+
   private
 
   def contact_form_params

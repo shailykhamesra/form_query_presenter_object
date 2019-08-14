@@ -2,5 +2,5 @@
 
 Rails.application.routes.draw do
   root to: 'individuals#new'
-  resources :individuals, only: %i[index new create]
+  resources :individuals, only: %i[index new create show]
 end
